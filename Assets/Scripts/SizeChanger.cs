@@ -75,7 +75,9 @@ public class SizeChanger : MonoBehaviour
         {
             if (canLoseWeight)
             {
-                yield return new WaitForSeconds(loseWeightTime);
+                float loseWeight = loseWeightTime / GameManager.Instance.WeightLossSpeed;
+                print(loseWeight);
+                yield return new WaitForSeconds(loseWeight);
                 MeshChange();
                 meshArrayOrderDecrease(meshArrayDecreaseSize);
             }
