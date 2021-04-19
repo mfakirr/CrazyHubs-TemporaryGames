@@ -975,6 +975,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426575743}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &432183251 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+  m_PrefabInstance: {fileID: 2021475213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &517842803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2557,6 +2562,7 @@ Transform:
   - {fileID: 2041987195}
   - {fileID: 1544244902}
   - {fileID: 426575744}
+  - {fileID: 432183251}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4886,6 +4892,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1f1274d1d3d94349b69d36256a43250, type: 3}
+--- !u!1001 &2021475213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1165516859}
+    m_Modifications:
+    - target: {fileID: 1149234200949348, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_Name
+      value: Dog-GreatDane Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25831252
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.8547635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0067369943
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27539176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.50000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.2334291
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356589810392016, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114925849592729484, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195483596070128140, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114925849592729484, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 2724ea9d48f53a64299a8e5616a496c8, type: 3}
 --- !u!1 &2041987194
 GameObject:
   m_ObjectHideFlags: 0
