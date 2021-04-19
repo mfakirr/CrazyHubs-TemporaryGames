@@ -18,16 +18,15 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] private float jumpDuration; // Duration of jumping process. Used for DoJump(..)
     private void Update()
     {
-        float speed = Input.GetAxis("Mouse X");
-        if (!jumping)
+        if (!jumping && GameManager.Instance.IsPlaying)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 offSet = gameObject.transform.position - GetMouseAsWorldPoint();
+                playerZPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             }
             if (Input.GetMouseButton(0))
             {
-                playerZPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
                 float x = Mathf.Clamp(GetMouseAsWorldPoint().x + offSet.x, -BORDER_ON_X, BORDER_ON_X);
                 transform.position = new Vector3(x, transform.position.y, transform.position.z);
             }
