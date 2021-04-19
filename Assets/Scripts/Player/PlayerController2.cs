@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class PlayerController2 : MonoBehaviour
 {
-    const float BORDER_ON_X = 1f;
+    const float BORDER_ON_X = 4.58f;
     public Ease ease = Ease.InOutFlash; // DOTween animation style. Can be changed from inspector.
     private float playerZPosition;
     private Vector3 offSet;

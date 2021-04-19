@@ -13,6 +13,7 @@ public class AnimationController : MonoBehaviour
     string die    = "Die"   ;
     string walk   = "Run"   ;
     string win    = "Win"   ;
+    string idle   = "Idle"  ;
 
     void Start()
     {
@@ -22,6 +23,10 @@ public class AnimationController : MonoBehaviour
     public void Walk()
     {
         catAnimator.SetBool(walk, true);
+    }
+    public void StopWalk() 
+    {
+        catAnimator.SetBool(walk, false);
     }
     public void Jump()
     {
@@ -38,5 +43,9 @@ public class AnimationController : MonoBehaviour
     public void Win()
     {
         catAnimator.SetTrigger(win);
+    }
+    public void Idle()
+    {
+        catAnimator.SetTrigger(idle);
     }
 }
