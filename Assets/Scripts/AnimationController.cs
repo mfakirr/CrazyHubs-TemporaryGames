@@ -31,6 +31,7 @@ public class AnimationController : MonoBehaviour
     public void Jump()
     {
         catAnimator.SetTrigger(jump);
+        gameObject.GetComponent<AudioSource>().Play();
     }
     public void Die()
     {

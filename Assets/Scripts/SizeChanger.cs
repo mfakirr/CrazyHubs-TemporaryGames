@@ -62,6 +62,8 @@ public class SizeChanger : MonoBehaviour
     public void MeshChange()
     {
         currentSkinnedMeshRenderer.sharedMesh = meeloCatMeshesInOrder[meshArrayOrder];
+        print(meshArrayOrder);
+        print(meeloCatMeshesInOrder[meshArrayOrder]);
     }
 
     void StopMeshChanger()

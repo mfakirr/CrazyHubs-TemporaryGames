@@ -16,6 +16,10 @@ public class FoodGainScale : MonoBehaviour
         if (Touched.CompareTag(catTag))
         {
             GainScaleWitgFood(Touched.GetComponent<SizeChanger>());
+            gameObject.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            //gameObject.SetActive(false);
+            
         }
     }
 

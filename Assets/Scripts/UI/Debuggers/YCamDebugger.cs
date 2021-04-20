@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 using TMPro;
+
 
 public class YCamDebugger : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class YCamDebugger : MonoBehaviour
     Slider mainSlider;
 
     [SerializeField] TextMeshProUGUI valueText;
+
 
     private void Start()
     {
@@ -22,6 +26,8 @@ public class YCamDebugger : MonoBehaviour
         Vector3 exPos = GameManager.Instance.CameraPosition;
         Vector3 newPos = new Vector3(exPos.x, mainSlider.value, exPos.z);
         GameManager.Instance.CameraPosition = newPos;
+
         valueText.text = mainSlider.value.ToString();
+
     }
 }

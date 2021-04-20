@@ -55,4 +55,18 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void FightStarted()
+    {
+        IsPlaying = false;
+    }
+
+    private void OnEnable()
+    {
+        EndTrigger.endFight += FightStarted;
+    }
+    private void OnDisable()
+    {
+        EndTrigger.endFight -= FightStarted;
+    }
 }
