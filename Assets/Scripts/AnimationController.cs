@@ -10,7 +10,7 @@ public class AnimationController : MonoBehaviour
 
     string attack = "Attack";
     string jump   = "Jump"  ;
-    string die    = "Die"   ;
+    string die    = "Death" ;
     string walk   = "Run"   ;
     string win    = "Win"   ;
     string idle   = "Idle"  ;

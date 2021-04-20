@@ -8,7 +8,7 @@ using TMPro;
 
 public class ZCamDebugger : MonoBehaviour
 {
-    [SerializeField] float defaultValue;
+    float defaultValue;
     Slider mainSlider;
 
 
@@ -19,6 +19,7 @@ public class ZCamDebugger : MonoBehaviour
     {
         mainSlider = GetComponent<Slider>();
         mainSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        defaultValue = Camera.main.transform.position.z;
         mainSlider.value = defaultValue;
     }
     public void ValueChangeCheck()

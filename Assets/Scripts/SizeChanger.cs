@@ -40,6 +40,11 @@ public class SizeChanger : MonoBehaviour
         {
             meshArrayOrder -= decreaseSize;
         }
+        else if(GameManager.Instance.IsPlaying == true)
+        {
+            GetComponent<AnimationController>().Die();
+            GameManager.Instance.IsPlaying = false;
+        }
         return meshArrayOrder;
     }
 
@@ -87,4 +92,5 @@ public class SizeChanger : MonoBehaviour
             }
         }
     }
+
 }

@@ -9,7 +9,7 @@ using TMPro;
 
 public class YCamDebugger : MonoBehaviour
 {
-    [SerializeField] float defaultValue;
+    float defaultValue;
     Slider mainSlider;
 
     [SerializeField] TextMeshProUGUI valueText;
@@ -19,6 +19,7 @@ public class YCamDebugger : MonoBehaviour
     {
         mainSlider = GetComponent<Slider>();
         mainSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        defaultValue = Camera.main.transform.position.y;
         mainSlider.value = defaultValue;
     }
     public void ValueChangeCheck()

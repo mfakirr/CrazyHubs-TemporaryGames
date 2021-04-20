@@ -7,7 +7,7 @@ using TMPro;
 
 public class XCamDebugger : MonoBehaviour
 {
-    [SerializeField] float defaultValue;
+    float defaultValue;
     Slider mainSlider;
 
     [SerializeField] TextMeshProUGUI valueText;
@@ -17,6 +17,7 @@ public class XCamDebugger : MonoBehaviour
     {
         mainSlider = GetComponent<Slider>();
         mainSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        defaultValue = Camera.main.transform.position.x;
         mainSlider.value = defaultValue;
     }
     public void ValueChangeCheck()
