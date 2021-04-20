@@ -12,6 +12,9 @@ public class DebugButton : MonoBehaviour
     [SerializeField] private float menuHideY;
     [SerializeField] private float animDuration;
     [SerializeField] private GameObject player;
+    [SerializeField]
+    PlayerSpeedDebugger playerSpeedDebugger;
+
     public void ShowDebugMenu()
     {
         GameManager.Instance.IsPlaying = false;
@@ -22,7 +25,12 @@ public class DebugButton : MonoBehaviour
     public void HideDebugMenu()
     {
         debugMenu.transform.DOLocalMoveY(menuHideY, animDuration).SetEase(ease);
+
         GameManager.Instance.IsPlaying = true;
-        player.GetComponent<AnimationController>().Walk();
+
+        if (playerSpeedDebugger.mainSlider.value > 0)
+        {
+            player.GetComponent<AnimationController>().Walk();
+        }
     }
 }
