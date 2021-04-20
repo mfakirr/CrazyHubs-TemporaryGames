@@ -32,6 +32,7 @@ public class Multipliers : MonoBehaviour
                 print(size.meshArrayOrder);
                 MultiplyTotalPoint();
                 other.GetComponent<AnimationController>().Win();
+                FindObjectOfType<ReplayScript>().ShowReplay();
             }
         }
 

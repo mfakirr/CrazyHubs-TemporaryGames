@@ -44,6 +44,7 @@ public class SizeChanger : MonoBehaviour
         {
             GetComponent<AnimationController>().Die();
             GameManager.Instance.IsPlaying = false;
+            FindObjectOfType<ReplayScript>().ShowReplay();
         }
         return meshArrayOrder;
     }
