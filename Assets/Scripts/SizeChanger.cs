@@ -62,6 +62,8 @@ public class SizeChanger : MonoBehaviour
     public void MeshChange()
     {
         currentSkinnedMeshRenderer.sharedMesh = meeloCatMeshesInOrder[meshArrayOrder];
+        print(meshArrayOrder);
+        print(meeloCatMeshesInOrder[meshArrayOrder]);
     }
 
     void StopMeshChanger()
@@ -76,7 +78,7 @@ public class SizeChanger : MonoBehaviour
             if (canLoseWeight)
             {
                 float loseWeight = loseWeightTime / GameManager.Instance.WeightLossSpeed;
-                
+                print(loseWeight);
                 yield return new WaitForSeconds(loseWeight);
                 MeshChange();
                 meshArrayOrderDecrease(meshArrayDecreaseSize);

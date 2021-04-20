@@ -49,17 +49,4 @@ public class AnimationController : MonoBehaviour
     {
         catAnimator.SetTrigger(idle);
     }
-    public void SetSpeed(float speed=1)
-    {
-        if (speed > 0)
-        {
-            catAnimator.SetFloat("SpeedHandler", speed / 500);
-            Walk();
-        }
-        else
-        {
-            Idle();
-            StopWalk();
-        }
-    }
 }
