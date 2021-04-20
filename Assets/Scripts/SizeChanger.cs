@@ -50,7 +50,6 @@ public class SizeChanger : MonoBehaviour
             if (Cats[i].GetComponentInChildren<SkinnedMeshRenderer>() != null)
             {
                 meeloCatMeshesInOrder.Add(Cats[i].GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh);
-               
             }
         }
 
@@ -62,8 +61,7 @@ public class SizeChanger : MonoBehaviour
     public void MeshChange()
     {
         currentSkinnedMeshRenderer.sharedMesh = meeloCatMeshesInOrder[meshArrayOrder];
-        print(meshArrayOrder);
-        print(meeloCatMeshesInOrder[meshArrayOrder]);
+        //print(meshArrayOrder);
     }
 
     void StopMeshChanger()
@@ -78,7 +76,7 @@ public class SizeChanger : MonoBehaviour
             if (canLoseWeight)
             {
                 float loseWeight = loseWeightTime / GameManager.Instance.WeightLossSpeed;
-                print(loseWeight);
+
                 yield return new WaitForSeconds(loseWeight);
                 MeshChange();
                 meshArrayOrderDecrease(meshArrayDecreaseSize);

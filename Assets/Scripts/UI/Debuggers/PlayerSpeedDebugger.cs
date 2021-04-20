@@ -30,8 +30,7 @@ public class PlayerSpeedDebugger : MonoBehaviour
 
         if (mainSlider.value>0 )
         {
-            playerAnimator.SetFloat("SpeedHandler", mainSlider.value / 500);
-            
+            playerAnimator.SetFloat("SpeedHandler", mainSlider.value / 500);   
         }
         else
         {

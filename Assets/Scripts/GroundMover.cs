@@ -35,10 +35,12 @@ public class GroundMover : MonoBehaviour
     void FixedUpdate()
     {
         Speed = GameManager.Instance.GameSpeed;
-        myRenderer.material.color = GameManager.Instance.GroundColor;
+        //myRenderer.material.color = GameManager.Instance.GroundColor;
 
         if (DoMove && GameManager.Instance.IsPlaying)
+        {
             body.velocity = Vector3.back * Speed * Time.deltaTime;
+        }
         else
         {
             body.velocity = Vector3.zero;

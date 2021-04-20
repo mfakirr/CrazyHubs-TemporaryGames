@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
-    public delegate void EndFight();
-    public static EndFight endFight;
+    [SerializeField]GameObject confetti;
+
     private void OnTriggerEnter(Collider other)
-    {
-        
+    {     
         if (other.CompareTag("Player"))
-        {
-            
-            Vector3 jumpPos = new Vector3(
-                other.transform.position.x,
-                other.transform.position.y +1f,
+        {  
+           other.transform.position = new Vector3(
+                0,
+                other.transform.position.y ,
                 other.transform.position.z);
 
-            StartCoroutine(other.GetComponent<PlayerController2>().HandleJump(jumpPos));
-            endFight();
+
+            other.GetComponent<SizeChanger>().canLoseWeight = false;
+            other.GetComponent<PlayerController2>().jumping = true;
+            other.GetComponent<AnimationController>().Jump();
+            confetti.SetActive(true);
+            Camera.main.GetComponent<AudioSource>().Stop();
         }
     }
 }

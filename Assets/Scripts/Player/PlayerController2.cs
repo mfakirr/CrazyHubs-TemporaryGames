@@ -11,7 +11,7 @@ public class PlayerController2 : MonoBehaviour
     private float playerZPosition;
     private Vector3 offSet;
     private AnimationController animationController;
-    private bool jumping;
+    [HideInInspector]public bool jumping;
 
     [Header("Jump Section"), Space(10)]
     [SerializeField] private float jumpPower; // Jumping power. Used for DoJump(..)
@@ -78,14 +78,6 @@ public class PlayerController2 : MonoBehaviour
         
     }
 
-    private void OnEnable()
-    {
-        EndTrigger.endFight += EndFightStarted;
-    }
-    private void OnDisable()
-    {
-        EndTrigger.endFight -= EndFightStarted;
-    }
     #region Trigger Detection
     private void OnTriggerEnter(Collider other)
     {

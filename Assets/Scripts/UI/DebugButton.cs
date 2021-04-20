@@ -21,12 +21,15 @@ public class DebugButton : MonoBehaviour
         debugMenu.transform.DOLocalMoveY(menuShowY, animDuration).SetEase(ease);
         player.GetComponent<AnimationController>().Idle();
         player.GetComponent<AnimationController>().StopWalk();
+        player.GetComponent<SizeChanger>().canLoseWeight = false;
     }
     public void HideDebugMenu()
     {
         debugMenu.transform.DOLocalMoveY(menuHideY, animDuration).SetEase(ease);
 
         GameManager.Instance.IsPlaying = true;
+
+        player.GetComponent<SizeChanger>().canLoseWeight = true;
 
         if (playerSpeedDebugger.mainSlider.value > 0)
         {
