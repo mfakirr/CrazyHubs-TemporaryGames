@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] private int numJumps; // Number of jumps. Used for DoJump(..)
     [SerializeField] private float jumpDuration; // Duration of jumping process. Used for DoJump(..)
     [SerializeField] private Transform enemy;
+
+    [SerializeField] Text Score;
+
     private void Update()
     {
         if (!jumping && GameManager.Instance.IsPlaying)
@@ -62,16 +66,6 @@ public class PlayerController2 : MonoBehaviour
         
     }
 
-    public void EndFightStarted()
-    {
-        transform.LookAt(enemy);
-        Vector3 fightPos = (transform.position + enemy.position) /2f;
-        transform.DOLocalMove(fightPos, 1f);
-        GetComponent<AnimationController>().StopWalk();
-        GetComponent<AnimationController>().Attack();
-        
-    }
-
     #region Trigger Detection
     private void OnTriggerEnter(Collider other)
     {
@@ -79,6 +73,7 @@ public class PlayerController2 : MonoBehaviour
         {
             StartCoroutine(HandleJump(transform.position));
             other.GetComponent<GainedPoint>().IncreaseTotalPoint();
+            Score.text = GameManager.Instance.Score.ToString();
         }
     }
     #endregion

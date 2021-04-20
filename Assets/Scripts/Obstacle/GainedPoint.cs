@@ -6,7 +6,9 @@ using UnityEngine;
 public class GainedPoint : MonoBehaviour
 {
     public int MyPointIndex => myPointIndex;
-    private int myPointIndex;
+    [SerializeField]private int myPointIndex;
+
+
     private void Start()
     {
         myPointIndex = Int32.Parse(GetComponentInChildren<TextMesh>().text);
@@ -14,10 +16,9 @@ public class GainedPoint : MonoBehaviour
     public void IncreaseTotalPoint()
     {
         GameManager.Instance.Score += MyPointIndex;
-        Debug.Log("Point: " + GameManager.Instance.Score);
     }
-    public void LoseWeight()
+    public void LoseWeight(GameObject cat)
     {
-        // This will make player lose extra weight
+        cat.GetComponent<SizeChanger>().meshArrayOrder -= 3;
     }
 }
