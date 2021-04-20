@@ -92,6 +92,7 @@ public class PlayerController2 : MonoBehaviour
         if (other.CompareTag("Obstacle") && !jumping)
         {
             StartCoroutine(HandleJump(transform.position));
+            other.GetComponent<GainedPoint>().IncreaseTotalPoint();
         }
     }
     #endregion
