@@ -9,7 +9,9 @@ public class GroundMaterialColorChangeR : MonoBehaviour
     [SerializeField] float defaultValue;
     Slider mainSlider;
 
-    [SerializeField] TextMeshProUGUI valueText;
+    [SerializeField] 
+    TextMeshProUGUI valueText;
+
     [SerializeField]
     SkinnedMeshRenderer GroundMat;
 
