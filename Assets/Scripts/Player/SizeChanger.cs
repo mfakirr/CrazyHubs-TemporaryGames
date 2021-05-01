@@ -40,6 +40,12 @@ public class SizeChanger : MonoBehaviour
         {
             meshArrayOrder -= decreaseSize;
         }
+        else if(GameManager.Instance.IsPlaying == true)
+        {
+            GetComponent<AnimationController>().Die();
+            GameManager.Instance.IsPlaying = false;
+            FindObjectOfType<ReplayScript>().ShowReplay();
+        }
         return meshArrayOrder;
     }
 
@@ -50,7 +56,6 @@ public class SizeChanger : MonoBehaviour
             if (Cats[i].GetComponentInChildren<SkinnedMeshRenderer>() != null)
             {
                 meeloCatMeshesInOrder.Add(Cats[i].GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh);
-               
             }
         }
 
@@ -62,8 +67,7 @@ public class SizeChanger : MonoBehaviour
     public void MeshChange()
     {
         currentSkinnedMeshRenderer.sharedMesh = meeloCatMeshesInOrder[meshArrayOrder];
-        print(meshArrayOrder);
-        print(meeloCatMeshesInOrder[meshArrayOrder]);
+        //print(meshArrayOrder);
     }
 
     void StopMeshChanger()
@@ -77,7 +81,9 @@ public class SizeChanger : MonoBehaviour
         {
             if (canLoseWeight)
             {
-                yield return new WaitForSeconds(loseWeightTime);
+                float loseWeight = loseWeightTime / GameManager.Instance.WeightLossSpeed;
+
+                yield return new WaitForSeconds(loseWeight);
                 MeshChange();
                 meshArrayOrderDecrease(meshArrayDecreaseSize);
             }
@@ -87,4 +93,5 @@ public class SizeChanger : MonoBehaviour
             }
         }
     }
+
 }

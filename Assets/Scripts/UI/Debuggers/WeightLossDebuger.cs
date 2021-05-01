@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeightLossDebuger : MonoBehaviour
 {
     [SerializeField] float defaultValue;
     Slider mainSlider;
+
+    [SerializeField] TextMeshProUGUI valueText;
+
+
     private void Start()
     {
         mainSlider = GetComponent<Slider>();
@@ -16,5 +21,8 @@ public class WeightLossDebuger : MonoBehaviour
     public void ValueChangeCheck()
     {
         GameManager.Instance.WeightLossSpeed = mainSlider.value;
+
+        valueText.text = mainSlider.value.ToString();
+
     }
 }

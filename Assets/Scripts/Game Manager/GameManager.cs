@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         get => isPlaying;
         set => isPlaying = value;
     }
+    public int Score
+    {
+        get => score;
+        set => score = value;
+    }
     public static GameManager Instance => instance;
     #endregion
 
@@ -39,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Vector3 cameraPosition;
     [SerializeField] Color groundColor;
     [SerializeField] bool isPlaying;
+    [SerializeField] int score;
     private static GameManager instance;
     #endregion
 
@@ -55,4 +61,5 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
 }

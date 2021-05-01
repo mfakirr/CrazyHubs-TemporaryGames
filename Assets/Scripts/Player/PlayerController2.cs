@@ -3,67 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class PlayerController2 : MonoBehaviour
 {
-    const float BORDER_ON_X = 1f;
+    const float BORDER_ON_X = 4.55f;
     public Ease ease = Ease.InOutFlash; // DOTween animation style. Can be changed from inspector.
-    private float playerZPosition;
-    private Vector3 offSet;
-    private bool jumping;
+    private float changingX;
+    [SerializeField]private float slideSensitivity;
+    
+    private AnimationController animationController;
+    [HideInInspector]public bool jumping;
 
     [Header("Jump Section"), Space(10)]
     [SerializeField] private float jumpPower; // Jumping power. Used for DoJump(..)
     [SerializeField] private int numJumps; // Number of jumps. Used for DoJump(..)
     [SerializeField] private float jumpDuration; // Duration of jumping process. Used for DoJump(..)
+    [SerializeField] private Transform enemy;
+
+    [SerializeField] Text Score;
+
     private void Update()
     {
         if (!jumping && GameManager.Instance.IsPlaying)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                offSet = gameObject.transform.position - GetMouseAsWorldPoint();
-                playerZPosition = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-            }
             if (Input.GetMouseButton(0))
             {
-                float x = Mathf.Clamp(GetMouseAsWorldPoint().x + offSet.x, -BORDER_ON_X, BORDER_ON_X);
-                transform.position = new Vector3(x, transform.position.y, transform.position.z);
+                changingX += Input.GetAxis("Mouse X") * Time.fixedDeltaTime * slideSensitivity;
+
+                changingX = Mathf.Clamp(changingX, -BORDER_ON_X, BORDER_ON_X);
+
+                transform.position = new Vector3(changingX,
+                                                  transform.position.y,
+                                                  transform.position.z);
             }
+
         }
     }
-    Vector3 GetMouseAsWorldPoint()
+
+    private void Start()
     {
-        // Pixel coordinates of mouse (x,y,z)
-        Vector3 mousePos = Input.mousePosition;
-        // z coordinate of game object on screen
-        mousePos.z = playerZPosition;
-        // Convert it to world points
-        return Camera.main.ScreenToWorldPoint(mousePos);
+        animationController = GetComponent<AnimationController>();
     }
+
     /// <summary>
     /// Starts jumping process.
     /// </summary>
     /// <returns></returns>
-    public IEnumerator HandleJump()
+    public IEnumerator HandleJump(Vector3 jumpPosition)
     {
         jumping = true;
         transform.DOJump(
-            transform.position,
+            jumpPosition,
             jumpPower,
             numJumps,
             jumpDuration).SetEase(ease);
+        animationController.Jump();
+
 
         yield return new WaitForSeconds(jumpDuration);
         jumping = false;
-        offSet = gameObject.transform.position - GetMouseAsWorldPoint();
+        
     }
+
     #region Trigger Detection
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle") && !jumping)
         {
-            StartCoroutine(HandleJump());
+            StartCoroutine(HandleJump(transform.position));
+            other.GetComponent<GainedPoint>().IncreaseTotalPoint();
+            Score.text = GameManager.Instance.Score.ToString();
         }
     }
     #endregion
